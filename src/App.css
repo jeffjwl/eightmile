@@ -46,3 +46,21 @@
   color: black;
 }
 
+#eminem{
+  
+  display: inline-block;
+  width:40%;
+  height:10%;
+}
+#usain{
+  
+  display: inline-block;
+  width:50%;
+  height:50%;
+ 
+}
+
+.together{
+ padding-bottom: 100px;
+
+}
