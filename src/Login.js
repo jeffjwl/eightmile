@@ -4,7 +4,9 @@ import axios from 'axios';
 import { CLIENT_SECRET_STRAVA } from './config.js';
 import eminem from './images/eminem.png';
 import usain from './images/usain.png';
+import back from './images/background.webp';
 
+import back_new from './images/background.jpeg';
 
 const CLIENT_ID = ""; // insert your client id here from spotify
 const CLIENT_ID_STRAVA = "96484"; // insert your client id here from spotify
@@ -81,14 +83,14 @@ const Login = () => {
 
 
   return (
-    <div className="container">
-      <h1 class="header">eight ⚡ mile</h1>
-      <button onClick={handleLoginStrava}>login to strava</button>
-       
+    <div  className="container"  style={ {backgroundSize:"140%",backgroundImage: `url(${back})` }} >
+      <h1 class="header" >EIGHT ⚡ MILE</h1>
+      <div class="body">
+      <button class="button" onClick={handleLoginStrava}>login to strava</button>
       <div class="together">
-        
         <div id="usain"> <img src={usain} /> </div>
         <div id="eminem"> <img src={eminem} /> </div>
+      </div>
       </div>
     
     </div>

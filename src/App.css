@@ -37,26 +37,46 @@
   }
 }
 
+.container{
+  background-color: black;
+}
+
 .header {
- font-size: 100px;
+ font-size: 90px;
+position: fixed;
+ background-color: black;
+  color:white;
+ margin-top: 0;
+ padding-top: 40px;
+ padding-bottom: 10px;
+ width:100%;
+ 
 }
 
 .header:hover{
-  background-color: rgb(245, 251, 80);
-  color: black;
+  color:yellow;
+}
+
+.body{
+  padding-top: 200px;
+}
+
+.button{
+ padding: 20px 40px;
+ font-size: 30px;
 }
 
 #eminem{
-  
   display: inline-block;
   width:40%;
   height:10%;
 }
+
 #usain{
-  
   display: inline-block;
   width:50%;
   height:50%;
+  opacity:1;
  
 }
 
