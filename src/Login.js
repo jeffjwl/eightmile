@@ -1,7 +1,8 @@
 
 import React, { useEffect } from "react";
-import axios from 'axios'
-import { CLIENT_SECRET_STRAVA } from './config.js'
+import axios from 'axios';
+import { CLIENT_SECRET_STRAVA } from './config.js';
+import eminem from './eminem.png';
 
 const CLIENT_ID = ""; // insert your client id here from spotify
 const CLIENT_ID_STRAVA = "96484"; // insert your client id here from spotify
@@ -74,10 +75,11 @@ const Login = () => {
     window.location = `${STRAVA_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID_STRAVA}&response_type=code&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${"read"}&approval_prompt=auto`;
 
   }
-
+  console.log(eminem);
   return (
     <div className="container">
-      <h1>hi</h1>
+      <h1 class="header">eight ⚡ mile</h1>
+      <img src={eminem}> </img>
       <button onClick={handleLoginStrava}>login to strava</button>
     </div>
   );
