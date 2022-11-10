@@ -43,9 +43,8 @@
 
 .header {
  font-size: 90px;
-position: fixed;
  background-color: black;
-  color:white;
+ color:white;
  margin-top: 0;
  padding-top: 40px;
  padding-bottom: 10px;
@@ -62,7 +61,6 @@ position: fixed;
 }
 
 .button{
- padding: 20px 40px;
  font-size: 30px;
 }
 
