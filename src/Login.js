@@ -47,7 +47,7 @@ const getReturnedParamsFromSpotifyAuth = (hash) => {
   return paramsSplitUp;
 };
 
-const Login = () => {
+const Login = ({setAccessToken, setAthleteId}) => {
   useEffect(() => {
     if (window.location.hash) {
       const { access_token, expires_in, token_type } =
@@ -62,15 +62,17 @@ const Login = () => {
     const params = new URLSearchParams(window.location.search)
     if(params.get('code')) {
         const stravaCode = params.get('code')
-        axios.post(`https://www.strava.com/oath/token?client_id=${CLIENT_ID_STRAVA}&client_secret=${CLIENT_SECRET_STRAVA}&code=${stravaCode}&grant_type=authorization_code`)
+        axios.post(`https://www.strava.com/oauth/token?client_id=${CLIENT_ID_STRAVA}&client_secret=${CLIENT_SECRET_STRAVA}&code=${stravaCode}&grant_type=authorization_code`)
           .then(function (response) {
-            console.log(response);
+            console.log(response)
+            setAccessToken(response.data.access_token);
+            setAthleteId(response.data.athlete.id)
           })
           .catch(function (error) {
             console.log(error);
           });
     }
-  });
+  }, []);
 
   const handleLogin = () => {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
