@@ -4,8 +4,9 @@ const ActivityCard = ({activity}) => {
     return (
         <div>
             <h1>{activity.name}</h1>
-            <h3>{activity.distance}</h3>
-            <h3>{activity["moving_times"]}</h3>
+            <h3>{activity.distance} m</h3>
+            <h3>{activity["average_speed"]} m/s</h3>
+
         </div>
     )
 }

@@ -8,7 +8,7 @@ import back from './images/background.webp';
 
 import back_new from './images/background.jpeg';
 
-const CLIENT_ID = ""; // insert your client id here from spotify
+const CLIENT_ID = "9c6602688d9442f0864398d5af2cb74f"; // insert your client id here from spotify
 const CLIENT_ID_STRAVA = "96484"; // insert your client id here from spotify
 const SCOPES_STRAVA = [
     "read",
@@ -74,7 +74,7 @@ const Login = ({setAccessToken, setAthleteId}) => {
     }
   }, []);
 
-  const handleLogin = () => {
+  const handleLoginSpotify = () => {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
   const handleLoginStrava = () => {
@@ -89,6 +89,8 @@ const Login = ({setAccessToken, setAthleteId}) => {
       <h1 class="header" >EIGHT ⚡ MILE</h1>
       <div class="body">
       <button class="button" onClick={handleLoginStrava}>login to strava</button>
+      <button class="button" onClick={handleLoginSpotify}>login to spotify</button>
+
       <div class="together">
         <div id="usain"> <img src={usain} /> </div>
         <div id="eminem"> <img src={eminem} /> </div>
