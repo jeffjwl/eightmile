@@ -78,7 +78,7 @@ const Login = ({setAccessToken, setAthleteId}) => {
     window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
   };
   const handleLoginStrava = () => {
-    window.location = `${STRAVA_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID_STRAVA}&response_type=code&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${"read"}&approval_prompt=auto`;
+    window.location = `${STRAVA_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID_STRAVA}&response_type=code&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_STRAVA}&approval_prompt=auto`;
 
   }
 
