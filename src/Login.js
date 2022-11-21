@@ -25,7 +25,12 @@ const SPACE_DELIMITER = "%20";
 const SCOPES = [
   "user-read-currently-playing",
   "user-read-playback-state",
+  "user-top-read",
+  "user-library-read",
   "playlist-read-private",
+  "playlist-modify-private",
+  "playlist-modify-public",
+
 ];
 const SCOPES_URL_PARAM = SCOPES.join(SPACE_DELIMITER);
 
@@ -81,6 +86,8 @@ const Login = ({setAccessToken, setAthleteId}) => {
     window.location = `${STRAVA_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID_STRAVA}&response_type=code&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_STRAVA}&approval_prompt=auto`;
 
   }
+
+
 
 
 
