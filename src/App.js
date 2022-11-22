@@ -27,6 +27,7 @@ function App() {
 
   useEffect(() => {
     const spotifyAccess = localStorage.getItem("accessToken");
+    console.log(spotifyAccess)
     if (spotifyAccess) {
       axios
         .get(`https://api.spotify.com/v1/me/top/artists?limit=5`, {
@@ -70,7 +71,30 @@ function App() {
 
     return songRecs.data
   }
+  const ms2mph = (speed) => {
+    let mph = speed * 2.237;
+    return mph;
+  }
+
+  const speed2bpm = (speed) => {
+    let mph = ms2mph(speed);
+    if (mph <= 2)        return 100;
+    else if (mph <= 3)   return 110;
+    else if (mph <= 4)   return 125;
+    else if (mph <=5) return 140;
+    else if (mph <=6) return 145;
+    else if (mph <=7) return 155;
+    else if (mph <=8)
+        return 165;
+    else if (mph <=9) return 170;
+    else if (mph <=10)
+        return 180;
+    else if (mph >10)
+        return 190;
+  }
+
   const makePlaylist = async (bpm, time) => {
+    console.log(bpm);
     const spotifyAccess = localStorage.getItem("accessToken");
     if (spotifyAccess) {
       console.log(spotifyAccess);
@@ -149,9 +173,16 @@ function App() {
   return (
     <div className="App">
       <Login setAccessToken={setAccessToken} setAthleteId={setAthleteId} />
+      <div className="alist">
       {activities.length > 0 &&
-        activities.map((activity) => <ActivityCard activity={activity} />)}
-      <button onClick={() => makePlaylist(120, 5400)}>make playlist</button>
+        activities.map((activity) => 
+        <div className="activity">
+          <h2>{activity.name}</h2>
+          <h4>average {ms2mph(activity["average_speed"]).toFixed(2)} mph </h4>
+          <h4>{(activity["elapsed_time"]/ 60).toFixed(2)} min </h4>
+          <button onClick={() => makePlaylist(speed2bpm(activity["average_speed"]), activity["elapsed_time"])}>make playlist</button>
+        </div>)}
+        </div>
     </div>
   );
 }
