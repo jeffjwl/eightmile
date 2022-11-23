@@ -95,9 +95,8 @@ const Login = ({setAccessToken, setAthleteId}) => {
     <div  className="container"  style={ {backgroundSize:"140%",backgroundImage: `url(${back})` }} >
       <h1 class="header" >EIGHT ⚡ MILE</h1>
       <div class="body">
-      <button class="button" onClick={handleLoginStrava}>login to strava</button>
       <button class="button" onClick={handleLoginSpotify}>login to spotify</button>
-
+      <button class="button" onClick={handleLoginStrava}>login to strava</button>
       <div class="together">
         <div id="usain"> <img src={usain} /> </div>
         <div id="eminem"> <img src={eminem} /> </div>
